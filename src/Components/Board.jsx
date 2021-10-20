@@ -131,7 +131,6 @@ const Board = ({ height, width, mines }) => {
       let data = createEmptyArray(height, width);
       data = allocateMines(data, height, width, mines);
       data = getNeighbors(data, height, width);
-      // console.log("init data", data);
       setInitData(data);
       return data;
     }
@@ -203,7 +202,6 @@ const Board = ({ height, width, mines }) => {
   // reveal logic for empty cell
   const revealEmpty = (x, y, data) => {
     let area = traverseBoard(x, y, data);
-    // console.log("area", area);
     area.map((value) => {
       if (
         !value.isFlagged &&
