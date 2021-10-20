@@ -1,17 +1,17 @@
 import React from 'react';
-import Board from './Components/Board';
+import Board from './components/Board';
 
 function App() {
 
   const state = {
     height: 8,
     width: 8,
-    mines: 10
+    bombs: 10
   }
 
   return (
     <div className="game">
-      <Board height={state.height} width={state.width} mines={state.mines} />
+      <Board height={state.height} width={state.width} bombs={state.bombs} />
     </div>
   );
 }

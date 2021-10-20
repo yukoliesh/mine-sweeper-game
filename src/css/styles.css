@@ -9,7 +9,7 @@
   --color-blue-02: hsla(200, 44%, 21%, 1);
   --color-blue-03: hsla(201, 61%, 42%, 1);
   --color-yellow: hsla(44, 100%, 60%, 1);
-  --color-black-lowOpacity: hsla(0, 0%, 0%, 0.2);
+  --color-black-lowOpacity: hsla(0, 0%, 0%, 0.5);
   --color-black-midOpacity: hsla(0, 0%, 0%, 0.8);
   --color-grey-light: hsla(0, 0%, 88%, 1);
 }
@@ -84,7 +84,7 @@ body {
   color: #fc543c;
 }
 
-.game .is-mine {
+.game .is-bomb {
   color: var(--color-blue-01, #023450);
 }
 /*# sourceMappingURL=styles.css.map */

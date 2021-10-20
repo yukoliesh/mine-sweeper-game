@@ -34,13 +34,13 @@ export const AlertWrapper = styled.div`
 export const AlertMessageCont = styled.div`
   z-index: 2;
   align-self: center;
-  width: 30%;
-  height: 25%;
+  width: 50%;
   background-color: #fff;
-  border-radius: 5px;
-  padding: 24px;
-  box-shadow: 3px 3px 3px 3px var(--color-black-lowOpacity);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 3px 5px 5px 3px var(--color-black-lowOpacity);
   border: solid 1px var(--color-black-lowOpacity);
+  color: var(--color-blue-01, #023450);
 `;
 
 export const AlertHeaderWrapper = styled.header`
@@ -51,29 +51,29 @@ export const AlertHeaderWrapper = styled.header`
 `;
 
 export const AlertMessage = styled.div`
-  padding: 24px;
+  padding: 0.85em;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 0.85em;
 `;
 
 export const CloseIconButton = styled.a`
-  font-size: 24px;
-  color: var(--color-black-midOpacity);
+  font-size: 1.5rem;
+  color: var(--color-blue-01, #023450);
   display: inherit;
   cursor: pointer;
   text-decoration: none;
 `;
 export const CloseButton = styled.button`
   display: inherit;
-  padding: 0.8em 2em;
-  font-size: 16px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   border: solid 1px #fff;
   border-radius: 5px;
   background-color: var(--color-grey-light, #e0e0e0);
-  color: var(--color-black-midOpacity);
+  color: var(--color-blue-01, #023450);
   margin: auto;
   cursor: pointer;
 `;
