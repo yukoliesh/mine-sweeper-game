@@ -120,7 +120,7 @@ const Board = ({ height, width, bombs }) => {
       return data;
     };
 
-    const [bombCount, setBombCount] = React.useState(0);
+    const [bombCount, setBombCount] = React.useState(bombs);
     const [gameStatus, setGameStatus] = React.useState("Click a cell to Start");
     const [boardData, setBoardData] = React.useState(initBoardData(height, width, bombs));
     const [showAlert, setShowAlert] = React.useState(false);
