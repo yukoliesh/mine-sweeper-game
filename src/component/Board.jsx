@@ -206,10 +206,10 @@ const Board = ({ height, width, bombs }) => {
 
   const handleCellClick = (x, y) => {
     setGameStatus('Game in Progress');
-     // if it's revealed, return true
+     // Check if it's revealed, return if true
     if(boardData[x][y].isRevealed || boardData[x][y].isFlagged) return null;
     
-    // check bomb. if it's true, it's game over
+    // check bomb. If it's true, it's game over
     if(boardData[x][y].isBomb){
       setGameStatus('You Lost.');
       revealBoard();
@@ -237,7 +237,7 @@ const Board = ({ height, width, bombs }) => {
     setBombCount(bombs - getFlags(updatedData).length);
   }
 
-  // Right click menu 
+  // Right click for flags
   const handleContextMenu = (e, x, y) => {
     e.preventDefault();
 
