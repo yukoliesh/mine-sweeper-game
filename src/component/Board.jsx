@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RestartButton } from '../styles';
+import { RestartButton } from '../style';
 import Cell from './Cell';
 import Alert from './Alert';
 import '../css/styles.css';

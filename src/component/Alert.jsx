@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AlertWrapper, AlertMessageCont, AlertHeaderWrapper, CloseIconButton, CloseButton, AlertMessage } from '../styles';
+import { AlertWrapper, AlertMessageCont, AlertHeaderWrapper, CloseIconButton, CloseButton, AlertMessage } from '../style';
 
 const Alert = ({ message, onCloseClick }) => {
 
