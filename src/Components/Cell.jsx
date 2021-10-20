@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CellItem } from '../Styles';
 
 const Cell = ({ onCellClick, value, cMenu }) => {
   const getValue = () => {
@@ -16,19 +15,16 @@ const Cell = ({ onCellClick, value, cMenu }) => {
     return value.neighbor;
   }
 
-  // console.log("value", value);
-
   let className =
       "cell" +
       (value.isRevealed ? "" : " hidden") +
       (value.isMine ? " is-mine" : "") +
       (value.isFlagged ? " is-flag" : "");
+
   return (
-    <>
-      <div onClick={onCellClick} className={className} onContextMenu={cMenu}>
-        {getValue()}
-      </div>
-    </>
+    <div onClick={onCellClick} className={className} onContextMenu={cMenu} data-testid={value.isMine ? "mine-cell" : "cellItem"}>
+      {getValue()}
+    </div>
   )
 };
 

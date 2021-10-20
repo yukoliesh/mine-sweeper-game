@@ -18,13 +18,13 @@ My game is very simple and basic, and there is no timer, or no scores.
     ```bash
     git clone https://github.com/yukoliesh/mine-sweeper-game.git
     ```
-2. Change the branch to `main`
+2. Make sure the branch is `master` if not,
     ```bash
-    git checkout main
+    git checkout master
     ```
 3. Install this project
     ```bash
-    yarn instll
+    yarn install
     ```
 4. Start this project
     ```bash

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HeaderContainer, HeaderTitle, GameInfo, RestartButton } from '../Styles';
+import { RestartButton } from '../styles';
 import Cell from './Cell';
+import Alert from './Alert';
 import '../css/styles.css';
 
 const Board = ({ height, width, mines }) => {
@@ -10,6 +11,8 @@ const Board = ({ height, width, mines }) => {
   const [gameStatus, setGameStatus] = React.useState("Click a cell to Start");
   const [boardData, setBoardData] = React.useState([]);
   const [initData, setInitData] = React.useState([]);
+  const [showAlert, setShowAlert] = React.useState(false);
+  const [alertMessage, setAlertMessage] = React.useState('');
 
    // Get random number 
   const getRandomNumber = React.useCallback((dimension) => {
@@ -128,7 +131,7 @@ const Board = ({ height, width, mines }) => {
       let data = createEmptyArray(height, width);
       data = allocateMines(data, height, width, mines);
       data = getNeighbors(data, height, width);
-      console.log("init data", data);
+      // console.log("init data", data);
       setInitData(data);
       return data;
     }
@@ -200,7 +203,7 @@ const Board = ({ height, width, mines }) => {
   // reveal logic for empty cell
   const revealEmpty = (x, y, data) => {
     let area = traverseBoard(x, y, data);
-    console.log("area", area);
+    // console.log("area", area);
     area.map((value) => {
       if (
         !value.isFlagged &&
@@ -227,7 +230,8 @@ const Board = ({ height, width, mines }) => {
     if(boardData[x][y].isMine){
       setGameStatus('You Lost.');
       revealBoard();
-      alert("Game Over");
+      setShowAlert(true);
+      setAlertMessage("Game Over");
     }
 
     let updatedData = boardData;
@@ -242,7 +246,8 @@ const Board = ({ height, width, mines }) => {
       setGameStatus('You Win!');
       setMineCount(0);
       revealBoard();
-      alert("You Win!");
+      setShowAlert(true);
+      setAlertMessage("You Win!");
     }
 
     setBoardData(updatedData);
@@ -275,12 +280,17 @@ const Board = ({ height, width, mines }) => {
         setMineCount(0);
         setGameStatus('You Win!');
         revealBoard();
-        alert('You Win!');
+        setShowAlert(true);
+        setAlertMessage("You Win!");
       }
     }
 
     setBoardData(updatedData);
     setMineCount(mines);
+  }
+
+  const onCloseAlertClick = () => {
+    setShowAlert(false);
   }
 
   return (
@@ -294,17 +304,21 @@ const Board = ({ height, width, mines }) => {
         </header>
         {boardData.map(rowData => (
           rowData.map(item => (
-            <>
-            <Cell onCellClick={() => handleCellClick(item.x, item.y)} cMenu={(e) => 
-            handleContextMenu(e, item.x, item.y)} value={item} />
-            {(rowData[rowData.length - 1] === item) ? <div className="clear" /> : ""}
-            </>
+            <div key={item.x * rowData.length + item.y}>
+            <Cell 
+              onCellClick={() => handleCellClick(item.x, item.y)} 
+              cMenu={(e) => handleContextMenu(e, item.x, item.y)} value={item} 
+              />
+            </div>
           ))
         ))}
         <footer>
-          <RestartButton type="button" value="Restart" onClick={onResetClick}>Restart</RestartButton>
+          <RestartButton type="button" onClick={onResetClick}>Restart</RestartButton>
         </footer>
       </div>
+      {showAlert && (
+        <Alert message={alertMessage} onCloseClick={onCloseAlertClick} />
+      )}
     </>
   )
 }
